@@ -5,10 +5,13 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
    Rigidbody2D rb;
-   float yPos;
-   int count = 0;
-   float force = - 0.1f;
-   float rightForce = 0.1f;
+
+   bool onGround;
+   
+   public static int count = 0;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,22 +21,46 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        yPos = transform.position.y;
+        
         if(Input.GetKey(KeyCode.LeftArrow)){
-            rb.AddForce(new Vector2(force, 0f), ForceMode2D.Impulse);
+            transform.Translate(new Vector3 (-0.01f, 0, 0));
         }
 
         if(Input.GetKey(KeyCode.RightArrow)){
-            rb.AddForce(new Vector2(rightForce, 0f), ForceMode2D.Impulse);
+            transform.Translate(new Vector3 (0.01f, 0, 0));
         }
-        if(Input.GetKeyDown(KeyCode.Space) && count>2){
-            Debug.Log(count);
+        if(Input.GetKeyDown(KeyCode.UpArrow)){
             count = count + 1;    
-            rb.AddForce(new Vector2(0f, 0.5f), ForceMode2D.Impulse);
+            Debug.Log(count);    
+            if(count <= 2){
+                rb.AddForce(new Vector3(0f, 25f), ForceMode2D.Impulse);
+            }
+            if(onGround == true){
+            count = count - count;
+            Debug.Log(onGround);
         }
-        if(yPos == -3.4){
-            count = 0;
+
+        
+        
         }
+        
+    }
+
+    void HandleCollision()
+    {
+        Collider2D colls[] = new Collider2D[10]();
+        rb.colls.GetContacts();
+        for(int i = 0; i <colls.length(); i++)
+        {
+                if(!colls[i].IsUnityNull())
+            {
+                if(colls[i].gameObject.tag == "Terrain")
+                {
+                    onGround = true;
+                }
+            }
+        }
+        
     }
 
 }

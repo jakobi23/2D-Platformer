@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: -3419739897108282227}
   - component: {fileID: -2236116359836591244}
   - component: {fileID: -7771337724589809585}
+  - component: {fileID: 4597251497212593268}
   m_Layer: 0
   m_Name: LittleDude
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,12 +131,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 9.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-3419739897108282227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ Animator:
   m_GameObject: {fileID: 376942394075212761}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f07b6955ee40a5f4186f7c5fe592c77f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -182,3 +183,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &4597251497212593268
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376942394075212761}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1ac25c07ebe249b4a913736251bf2e19, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 6c98ca5d4f159b74d932c6267bb45ebe, type: 2}
+  - {fileID: 7400000, guid: c10ca17749092e1468c1eb80fc20ddb1, type: 2}
+  - {fileID: 7400000, guid: 63724e789bb57bf4d9ba1f50677941c1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
